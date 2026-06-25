@@ -15,6 +15,16 @@
             color: #ffffff;
             font-family: system-ui, -apple-system, sans-serif;
         }
+        .dot {
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background-color: #0091ff;
+            transform: scale(1.3);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body class="min-h-screen p-8 md:p-16 flex flex-col justify-between relative select-none">
@@ -73,27 +83,87 @@
         <!-- Pagination Controls -->
         <div class="flex justify-between items-center text-xs tracking-widest text-gray-500 font-mono">
             <div class="flex items-center gap-4">
-                <button class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&larr;</button>
-                <button class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&rarr;</button>
+                <button id="prevBtn" class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&larr;</button>
+                <button id="nextBtn" class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&rarr;</button>
                 <span class="ml-2 uppercase text-[10px] font-sans text-gray-400">Press &rarr; to advance</span>
             </div>
             <div>
-                <span class="text-white">01</span> / 08
+                <span class="text-white" id="currentSlide">01</span> / 08
             </div>
         </div>
     </footer>
 
     <!-- Vertical Navigation Dot Indicator (Right Side) -->
-    <div class="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3">
-        <span class="w-2 h-2 rounded-full bg-[#0091ff]"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
+    <div class="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3" id="dotContainer">
+        <span class="dot active w-2 h-2 rounded-full bg-[#0091ff] cursor-pointer" data-slide="1"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="2"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="3"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="4"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="5"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="6"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="7"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="8"></span>
     </div>
+
+    <script>
+        // Presentation state
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        // Handle keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Handle button clicks
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+        // Handle dot clicks
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.addEventListener('click', function() {
+                goToSlide(parseInt(this.dataset.slide));
+            });
+        });
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        function goToSlide(slideNum) {
+            currentSlide = slideNum;
+            
+            // Update slide number display
+            document.getElementById('currentSlide').textContent = String(slideNum).padStart(2, '0');
+            
+            // Update active dot
+            document.querySelectorAll('.dot').forEach(dot => {
+                dot.classList.remove('active');
+                if (parseInt(dot.dataset.slide) === slideNum) {
+                    dot.classList.add('active');
+                }
+            });
+            
+            // Navigate to the slide file
+            if (slideNum === 1) {
+                window.location.href = 'index.html';
+            } else {
+                window.location.href = `slide${slideNum}.html`;
+            }
+        }
+    </script>
 
 </body>
 </html>
