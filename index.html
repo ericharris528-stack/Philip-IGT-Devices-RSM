@@ -9,28 +9,22 @@
         body {
             background-color: #0b1520;
             background-image: 
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             color: #ffffff;
             font-family: system-ui, -apple-system, sans-serif;
         }
-        .dot {
-            transition: all 0.3s ease;
-        }
-        .dot.active {
-            background-color: #0091ff;
-            transform: scale(1.3);
-        }
-        button:active {
-            transform: scale(0.95);
-        }
+        .slide { display: none; }
+        .slide.active { display: flex; }
+        .dot { transition: all 0.3s ease; cursor: pointer; }
+        button:active { transform: scale(0.95); }
     </style>
 </head>
-<body class="min-h-screen p-8 md:p-16 flex flex-col justify-between relative select-none">
+<body class="min-h-screen p-6 md:p-12 flex flex-col justify-between relative overflow-x-hidden">
 
-    <!-- Top Navigation Header -->
-    <header class="text-xs md:text-sm tracking-[0.25em] text-[#0091ff] font-semibold uppercase flex flex-wrap gap-2">
+    <!-- FIXED TOP HEADER -->
+    <header class="text-xs tracking-[0.25em] text-[#0091ff] font-semibold uppercase flex flex-wrap gap-2 z-10">
         <span>Philips Image Guided Therapy</span>
         <span class="text-gray-600">•</span>
         <span>RSM Interview</span>
@@ -38,131 +32,317 @@
         <span class="text-white">LA / SD / Phoenix</span>
     </header>
 
-    <!-- Main Content Section -->
-    <main class="max-w-4xl my-auto py-12">
-        <h1 class="text-7xl md:text-8xl font-black tracking-tight mb-2 leading-none">
-            Eric<br>Harris<span class="text-[#0091ff]">.</span>
-        </h1>
+    <!-- SLIDE CONTAINER -->
+    <div class="flex-1 flex flex-col justify-center my-6 max-w-6xl w-full mx-auto z-10">
         
-        <p class="text-sm md:text-base tracking-[0.2em] font-bold text-gray-400 uppercase mb-8">
-            Regional Sales Manager Candidate
-        </p>
+        <!-- SLIDE 1: INTRO -->
+        <section id="slide-1" class="slide active flex-col justify-center">
+            <div class="max-w-4xl py-6">
+                <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-2 leading-none">Eric<br>Harris<span class="text-[#0091ff]">.</span></h1>
+                <p class="text-xs md:text-sm tracking-[0.2em] font-bold text-gray-400 uppercase mb-6">Regional Sales Manager Candidate</p>
+                <div class="border-l-2 border-[#0091ff] pl-6 max-w-2xl text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                    <p>Twenty years in medical devices and life sciences — two proof points that tell the whole story: <strong class="text-white font-semibold">I led a team of 100 across the Western US, growing the Medtronic InterStim business from early market acceptance to $150M+</strong>.</p>
+                    <p>At SPR Therapeutics, I rebuilt a 17-member Pacific Northwest team while driving 25% YoY growth simultaneously. Each time, the mechanism was the same — build the right team, drive utilization case by case, build physician habit until it becomes protocol. That's the Philips IGT growth model. And it's exactly how I work.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-800 pt-6 max-w-5xl mt-6">
+                <div><div class="text-2xl md:text-3xl font-black text-white">20+</div><div class="text-[11px] text-gray-400 mt-1">Years in medical device & life sciences</div></div>
+                <div><div class="text-2xl md:text-3xl font-black text-white">$150M+</div><div class="text-[11px] text-gray-400 mt-1">InterStim revenue led across Western US</div></div>
+                <div><div class="text-2xl md:text-3xl font-black text-white">17</div><div class="text-[11px] text-gray-400 mt-1">Rebuilt 17-member PNW team at SPR with 25% YoY growth</div></div>
+                <div><div class="text-2xl md:text-3xl font-black text-white">Day 1</div><div class="text-[11px] text-gray-400 mt-1">Ready to execute — not just onboard</div></div>
+            </div>
+        </section>
 
-        <div class="border-l-2 border-[#0091ff] pl-6 max-w-2xl text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
-            <p>
-                Twenty years in medical devices and life sciences — two proof points that tell the whole story: 
-                <strong class="text-white font-semibold">I led a team of 100 across the Western US, growing the Medtronic InterStim business from early market acceptance to $150M+</strong>.
-            </p>
-            <p>
-                At SPR Therapeutics, I rebuilt a 17-member Pacific Northwest team while driving 25% YoY growth simultaneously. Each time, the mechanism was the same — build the right team, drive utilization case by case, build physician habit until it becomes protocol. That's the Philips IGT growth model. And it's exactly how I work.
-            </p>
+        <!-- SLIDE 2: TERRITORY THESIS -->
+        <section id="slide-2" class="slide flex-col justify-center">
+            <div class="max-w-4xl py-4">
+                <p class="text-xs uppercase tracking-widest text-[#0091ff] font-semibold mb-2">02 . Strategic Approach</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Three Selling Motions<span class="text-[#0091ff]">.</span></h2>
+                <p class="text-gray-300 text-sm max-w-3xl mb-6">The LA / SD / Phoenix territory isn't one market — it's three distinct growth plays running simultaneously. But all three share the same underlying truth: <span class="text-white font-semibold">placement is the starting line</span>. The rep who drives utilization case by case compounds revenue.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl">
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <span class="text-[10px] uppercase font-bold text-gray-500 block mb-1">Motion 01 • Capital Accounts</span>
+                    <h3 class="text-white font-bold text-base mb-2">Azurion Capital Accounts</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-[#0091ff]">Protect & Deepen:</strong> Azurion-installed accounts with IVUS utilization below national benchmark. Maximum defensibility, highest-margin pull-through.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <span class="text-[10px] uppercase font-bold text-gray-500 block mb-1">Motion 02 • Competitive Core</span>
+                    <h3 class="text-white font-bold text-base mb-2">Competitive + Volcano Legacy</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-[#0091ff]">Expand & Convert:</strong> Siemens/GE/Canon accounts already buying Philips catheters. Push wallet share, introduce co-registration, track capital refresh cycles.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <span class="text-[10px] uppercase font-bold text-gray-500 block mb-1">Motion 03 • Outpatient Growth</span>
+                    <h3 class="text-white font-bold text-base mb-2">ASC / OBL Greenfield</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-[#0091ff]">Greenfield Capture:</strong> Fastest-growing segment. 5.78% CAGR through 2030. IntraSight Mobile as standalone entry. SymphonySuite for de novo builds.</p>
+                </div>
+            </div>
+            <div class="mt-6 border-t border-gray-800 pt-4 text-xs text-gray-400 italic">"Drive Utilization. Build Habit. Compound Revenue."</div>
+        </section>
+
+        <!-- SLIDE 3: ACCOUNT PRIORITY -->
+        <section id="slide-3" class="slide flex-col justify-center">
+            <div class="max-w-4xl py-4">
+                <p class="text-xs uppercase tracking-widest text-[#0091ff] font-semibold mb-2">03 . Execution Framework</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Account Priority Stack<span class="text-[#0091ff]">.</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm mb-6">Where to focus regional resources first to capture high-probability wins immediately.</p>
+            </div>
+            <div class="space-y-3 max-w-4xl">
+                <div class="flex items-start gap-4 p-3 bg-gray-900/50 rounded border border-gray-800/80">
+                    <div class="w-8 h-8 rounded bg-[#0091ff]/20 text-[#0091ff] font-black flex items-center justify-center text-sm flex-shrink-0">1</div>
+                    <div>
+                        <h4 class="text-white text-sm font-bold">Azurion accounts with low IVUS utilization <span class="text-xs font-normal text-emerald-400 ml-2">[PROTECT]</span></h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Easiest revenue, highest-margin pull-through. Full IntraSight integration available.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-3 bg-gray-900/50 rounded border border-gray-800/80">
+                    <div class="w-8 h-8 rounded bg-gray-800 text-gray-300 font-black flex items-center justify-center text-sm flex-shrink-0">2</div>
+                    <div>
+                        <h4 class="text-white text-sm font-bold">Competitive capital + Volcano/IntraSight legacy <span class="text-xs font-normal text-[#0091ff] ml-2">[EXPAND]</span></h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Catheter relationship already exists. Grow wallet share, introduce SyncVision, track refresh cycle.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-3 bg-gray-900/50 rounded border border-gray-800/80">
+                    <div class="w-8 h-8 rounded bg-gray-800 text-gray-300 font-black flex items-center justify-center text-sm flex-shrink-0">3</div>
+                    <div>
+                        <h4 class="text-white text-sm font-bold">De novo OBL / ASC builds <span class="text-xs font-normal text-amber-500 ml-2">[GREENFIELD]</span></h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Full SymphonySuite opportunity. Highest deal size in outpatient segment. No competing capital relationship to displace.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-3 bg-gray-900/50 rounded border border-gray-800/80 opacity-60">
+                    <div class="w-8 h-8 rounded bg-gray-800 text-gray-400 font-black flex items-center justify-center text-sm flex-shrink-0">4</div>
+                    <div>
+                        <h4 class="text-white text-sm font-bold">Competitive capital, no current Philips device presence <span class="text-xs font-normal text-gray-400 ml-2">[EXPAND]</span></h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Longest sales cycle. IntraSight Mobile as capital-agnostic entry point to establish catheter pull-through.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: CLINICAL EVIDENCE -->
+        <section id="slide-4" class="slide flex-col justify-center">
+            <div class="max-w-4xl py-4">
+                <p class="text-xs uppercase tracking-widest text-[#0091ff] font-semibold mb-2">04 . Science & Data</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Clinical Evidence at a Glance<span class="text-[#0091ff]">.</span></h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mb-6">
+                <div class="bg-gray-900/60 p-4 rounded border border-gray-800">
+                    <div class="text-3xl md:text-4xl font-black text-red-400 mb-1">-29%</div>
+                    <div class="text-xs text-gray-400">MACE Reduction</div>
+                    <div class="text-[10px] text-gray-500 mt-1">IVUS-guided vs. angio-guided PCI. (ULTIMATE Trial)</div>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded border border-gray-800">
+                    <div class="text-3xl md:text-4xl font-black text-emerald-400 mb-1">15 min</div>
+                    <div class="text-xs text-gray-400">Time Saved / Case</div>
+                    <div class="text-[10px] text-gray-500 mt-1">iFR vs. FFR workflow — no adenosine. (DEFINE-FLAIR)</div>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded border border-gray-800">
+                    <div class="text-3xl md:text-4xl font-black text-[#0091ff] mb-1">#1</div>
+                    <div class="text-xs text-gray-400">Eagle Eye Platinum</div>
+                    <div class="text-[10px] text-gray-500 mt-1">Most-used IVUS catheter in the United States.</div>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded border border-gray-800">
+                    <div class="text-3xl md:text-4xl font-black text-orange-400 mb-1">~30%</div>
+                    <div class="text-xs text-gray-400">US IVUS Utilization</div>
+                    <div class="text-[10px] text-gray-500 mt-1">Current guidance rate vs. 80%+ in Japan. The adoption growth thesis.</div>
+                </div>
+            </div>
+            <div class="max-w-5xl border-t border-gray-800 pt-4">
+                <p class="text-xs text-gray-400 mb-2"><strong class="text-white">IGT Device Portfolio Base:</strong></p>
+                <p class="text-xs text-gray-400">Eagle Eye Platinum (IVUS) • OmniWire (iFR/FFR) • SyncVision Co-Registration • IntraSight Mobile • Specialty Balloons & Atherectomy • VeriSight Pro ICE • SymphonySuite</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: VALUE PROPOSITION -->
+        <section id="slide-5" class="slide flex-col justify-center">
+            <div class="max-w-4xl py-4">
+                <p class="text-xs uppercase tracking-widest text-[#0091ff] font-semibold mb-2">05 . Value Proposition Mapping</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Same Devices. Four Conversations<span class="text-[#0091ff]">.</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl">
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <div class="text-2xl mb-2">Rx</div>
+                    <h4 class="text-white font-bold mb-2">Interventional Cardiologist</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-gray-300">Driven by:</strong> Outcomes, RVU protection, volumes. <strong class="text-white">Lead with</strong> -29% MACE reduction, 15 min saved via iFR, and precision layout.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <div class="text-2xl mb-2">$</div>
+                    <h4 class="text-white font-bold mb-2">CFO / Hospital Administrator</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-gray-300">Driven by:</strong> Protecting cath lab margins and readmission costs. <strong class="text-white">One avoided readmission</strong> at $25K+ offsets total device cost.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <div class="text-2xl mb-2">♥</div>
+                    <h4 class="text-white font-bold mb-2">Cath Lab Director & Staff</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-gray-300">Driven by:</strong> Efficiency and room turnover. <strong class="text-white">IntraSight plug-and-play,</strong> one-click configurations, and workflow savings keep rooms moving.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <div class="text-2xl mb-2">◈</div>
+                    <h4 class="text-white font-bold mb-2">Service Line Director</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-gray-300">Driven by:</strong> Quality rankings and protocol standardization. <strong class="text-white">Positioned to formalize</strong> baseline clinical IVUS criteria across all operators.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: MARKET DEFENSE -->
+        <section id="slide-6" class="slide flex-col justify-center">
+            <div class="max-w-4xl py-4">
+                <p class="text-xs uppercase tracking-widest text-[#0091ff] font-semibold mb-2">06 . Market Defense</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Knowing the Battlefield<span class="text-[#0091ff]">.</span></h2>
+            </div>
+            <div class="space-y-4 max-w-5xl">
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <h4 class="text-white font-bold text-sm mb-2">IVUS: Eagle Eye vs Abbott / BSC</h4>
+                    <p class="text-gray-400 text-xs">Eagle Eye is #1 in US. SyncVision co-registration has no Abbott Ultreon equivalent. Integration story wins handily in core Azurion accounts over BSC iLab.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <h4 class="text-white font-bold text-sm mb-2">Wires: OmniWire vs Abbott / BSC</h4>
+                    <p class="text-gray-400 text-xs">iFR eliminates adenosine entirely, saving 15 min per case. Boston Scientific Comet is FFR-only. Combined workflow advantages are undeniable.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <h4 class="text-white font-bold text-sm mb-2">Systems: Philips vs Siemens / GE</h4>
+                    <p class="text-gray-400 text-xs">Device portfolio is capital-agnostic via IntraSight Mobile. Two-thirds of the market runs on competitive capital—and is fully addressable via our catheter footprint.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: REGIONAL BREAKDOWN -->
+        <section id="slide-7" class="slide flex-col justify-center">
+            <div class="max-w-4xl py-4">
+                <p class="text-xs uppercase tracking-widest text-[#0091ff] font-semibold mb-2">07 . Regional Breakdown</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">LA • San Diego • Phoenix Grid<span class="text-[#0091ff]">.</span></h2>
+            </div>
+            <div class="space-y-4 max-w-5xl">
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <h4 class="text-[#0091ff] font-bold text-sm mb-1">Los Angeles</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-gray-300">Key Systems:</strong> Cedars-Sinai, UCLA, USC Keck, Providence, Kaiser SoCal. IDN-dominated, complex formulary process. High TAVR/LAAO volume. Rapid physician-owned OBL growth corridor.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <h4 class="text-[#0091ff] font-bold text-sm mb-1">San Diego</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-gray-300">Key Systems:</strong> UC San Diego, Scripps Health, Sharp, VA San Diego. Academic & military mix. Evidence-based protocol adoption focus. Rapidly expanding North County outpatient corridor.</p>
+                </div>
+                <div class="bg-gray-900/40 p-5 rounded border border-gray-800">
+                    <h4 class="text-[#0091ff] font-bold text-sm mb-1">Phoenix</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed"><strong class="text-gray-300">Key Systems:</strong> Banner Health, Dignity, HonorHealth, Mayo Clinic AZ. High population growth fueling rapid structural lab expansion. Less IDN consolidation means fast, agile capital decisions.</p>
+                </div>
+            </div>
+            <div class="max-w-5xl border-t border-gray-800 mt-4 pt-4">
+                <p class="text-xs text-gray-400 space-y-1">
+                    <span class="block">• <strong>Market Share Est:</strong> Siemens 35%, Philips 30%, GE 25%</span>
+                    <span class="block">• <strong>OBL/ASC Segment:</strong> 5.78% CAGR through 2030</span>
+                    <span class="block">• <strong>Volcano Legacy:</strong> $1.2B foundation to convert footprint</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: SUMMARY -->
+        <section id="slide-8" class="slide flex-col justify-center">
+            <div class="max-w-4xl py-4">
+                <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-6">Ready to Execute<span class="text-[#0091ff]">.</span></h2>
+            </div>
+            <div class="max-w-4xl text-gray-300 text-sm md:text-base leading-relaxed space-y-4 mb-8">
+                <p>The territory is mapped. The motions are defined. The stakeholder conversations are built. The clinical evidence is internalized.</p>
+                <p>And I've already run this playbook — <strong class="text-white">twice.</strong> Utilization drives everything. Placement is just the starting line. <strong class="text-white">That's not interview prep; that's my track record.</strong></p>
+            </div>
+            <div class="border-t border-gray-800 pt-6 max-w-4xl">
+                <h4 class="text-white font-bold text-sm mb-2">Candidate: Eric Harris</h4>
+                <p class="text-gray-400 text-xs">
+                    <strong class="text-gray-300">Email:</strong> ericharris528@gmail.com<br>
+                    <strong class="text-gray-300">Experience:</strong> 20+ Years Medical Device & Leadership
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER NAVIGATION -->
+    <footer class="flex justify-between items-center text-xs tracking-widest text-gray-500 font-mono z-10">
+        <div class="flex items-center gap-4">
+            <button id="prev-btn" class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&larr;</button>
+            <button id="next-btn" class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&rarr;</button>
+            <span class="ml-2 uppercase text-[10px] font-sans text-gray-400">Press &rarr; or Space to advance</span>
         </div>
-    </main>
-
-    <!-- Bottom Metrics Grid & Footer -->
-    <footer class="w-full">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-800 pt-8 pb-12 max-w-5xl">
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white">20+</div>
-                <div class="text-xs text-gray-400 mt-1 leading-tight">Years in medical device & life sciences</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white">$150M+</div>
-                <div class="text-xs text-gray-400 mt-1 leading-tight">InterStim revenue led across Western US — team of 100, early market acceptance to scale</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white">17</div>
-                <div class="text-xs text-gray-400 mt-1 leading-tight">Rebuilt 17-member Pacific Northwest team at SPR while driving 25% YoY growth — simultaneously.</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white">Day 1</div>
-                <div class="text-xs text-gray-400 mt-1 leading-tight">Ready to execute — not just onboard</div>
-            </div>
-        </div>
-
-        <!-- Pagination Controls -->
-        <div class="flex justify-between items-center text-xs tracking-widest text-gray-500 font-mono">
-            <div class="flex items-center gap-4">
-                <button id="prevBtn" class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&larr;</button>
-                <button id="nextBtn" class="w-8 h-8 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-white hover:text-white transition">&rarr;</button>
-                <span class="ml-2 uppercase text-[10px] font-sans text-gray-400">Press &rarr; to advance</span>
-            </div>
-            <div>
-                <span class="text-white" id="currentSlide">01</span> / 08
-            </div>
+        <div>
+            <span class="text-white" id="slide-number">01</span> / 08
         </div>
     </footer>
 
     <!-- Vertical Navigation Dot Indicator (Right Side) -->
-    <div class="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3" id="dotContainer">
-        <span class="dot active w-2 h-2 rounded-full bg-[#0091ff] cursor-pointer" data-slide="1"></span>
-        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="2"></span>
-        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="3"></span>
-        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="4"></span>
-        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="5"></span>
-        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="6"></span>
-        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="7"></span>
-        <span class="dot w-1.5 h-1.5 rounded-full bg-gray-700 cursor-pointer" data-slide="8"></span>
+    <div class="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3 z-10" id="dots-container">
     </div>
 
     <script>
-        // Presentation state
-        let currentSlide = 1;
         const totalSlides = 8;
+        let currentSlide = 1;
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const slideNumDisplay = document.getElementById('slide-number');
+        const dotsContainer = document.getElementById('dots-container');
 
-        // Handle keyboard navigation
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowRight') {
-                nextSlide();
-            } else if (event.key === 'ArrowLeft') {
-                prevSlide();
+        // Create navigation dots
+        for (let i = 1; i <= totalSlides; i++) {
+            const dot = document.createElement('span');
+            dot.id = `dot-${i}`;
+            dot.className = i === 1 ? 'dot w-2 h-2 rounded-full bg-[#0091ff]' : 'dot w-1.5 h-1.5 rounded-full bg-gray-700';
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateSlides() {
+            // Update active slides visibility
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+
+            // Update bottom numerical display
+            slideNumDisplay.innerText = String(currentSlide).padStart(2, '0');
+
+            // Update sidebar navigation dots
+            for (let i = 1; i <= totalSlides; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (i === currentSlide) {
+                    dot.className = "dot w-2 h-2 rounded-full bg-[#0091ff]";
+                } else {
+                    dot.className = "dot w-1.5 h-1.5 rounded-full bg-gray-700";
+                }
             }
-        });
-
-        // Handle button clicks
-        document.getElementById('nextBtn').addEventListener('click', nextSlide);
-        document.getElementById('prevBtn').addEventListener('click', prevSlide);
-
-        // Handle dot clicks
-        document.querySelectorAll('.dot').forEach(dot => {
-            dot.addEventListener('click', function() {
-                goToSlide(parseInt(this.dataset.slide));
-            });
-        });
+        }
 
         function nextSlide() {
             if (currentSlide < totalSlides) {
-                goToSlide(currentSlide + 1);
+                currentSlide++;
+            } else {
+                currentSlide = 1;
             }
+            updateSlides();
         }
 
         function prevSlide() {
             if (currentSlide > 1) {
-                goToSlide(currentSlide - 1);
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides;
             }
+            updateSlides();
         }
 
         function goToSlide(slideNum) {
             currentSlide = slideNum;
-            
-            // Update slide number display
-            document.getElementById('currentSlide').textContent = String(slideNum).padStart(2, '0');
-            
-            // Update active dot
-            document.querySelectorAll('.dot').forEach(dot => {
-                dot.classList.remove('active');
-                if (parseInt(dot.dataset.slide) === slideNum) {
-                    dot.classList.add('active');
-                }
-            });
-            
-            // Navigate to the slide file
-            if (slideNum === 1) {
-                window.location.href = 'index.html';
-            } else {
-                window.location.href = `slide${slideNum}.html`;
-            }
+            updateSlides();
         }
+
+        // Event Listeners for buttons
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Keyboard navigation
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
     </script>
 
 </body>
